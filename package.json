@@ -1,0 +1,29 @@
+{
+  "name": "chess",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/RasyaDE/chess#readme",
+  "bugs": {
+    "url": "https://github.com/RasyaDE/chess/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RasyaDE/chess.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "chess.js": "^1.4.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "gitignore": "^0.7.0",
+    "nodemon": "^3.1.10",
+    "socket.io": "^4.8.1"
+  }
+}
