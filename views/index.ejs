@@ -26,6 +26,39 @@
     font-family: sans-serif;
   }
 
+  #trollButton {
+    position: absolute;
+    top: 60%;
+    left: 45%;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #ff00cc, #3333ff);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 0, 200, 0.6), 0 0 30px rgba(51, 51, 255, 0.6);
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+  #trollButton:hover {
+    transform: scale(1.1);
+  }
+
+  @keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(4px, -4px); }
+    50% { transform: translate(-4px, 4px); }
+    75% { transform: translate(4px, 4px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  #trollButton.shake {
+    animation: shake 0.3s;
+  }
+
   @keyframes rainbowMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -37,17 +70,27 @@
 </head>
 <body>
   <p style="text-align: center; color: white;">
-    When ketika success is 200, <br>
-    masih development ngab, <br>
-    masih nyoba-nyoba.
+    When ketika berhasil is 200 success, <br>
+    error is 404 skill not found, <br>
   </p>
+
+  <button id="trollButton" style="position: absolute; top: 60%; left: 45%; z-index: 100;">Redirect ke halaman asli</button>
+
 
 
   <div class="tenor-gif-embed" data-postid="22755440" data-share-method="host" data-aspect-ratio="1.78771" data-width="100%">
     <a href="https://tenor.com/view/rick-astly-rick-rolled-gif-22755440">Rick Astly Rick Rolled GIF</a>
     from <a href="https://tenor.com/search/rick+astly-gifs">Rick Astly GIFs</a>
   </div>
-  <p style="text-align: center; color: white;"><b>copyright rasya 2025</b></p>
+  <p style="text-align: center; color: white;"><b>copyright rasya wengdev 2025</b></p>
   <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+<script>
+  const button = document.getElementById('trollButton');
+  button.addEventListener('mouseenter', () => {
+    button.style.top = Math.random() * 80 + "%";
+    button.style.left = Math.random() * 80 + "%";
+  });
+</script>
 </body>
 </html>
