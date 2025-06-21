@@ -20,13 +20,10 @@ let currentPlayer = "W"
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.get('/', (req,res) => {
-  res.render('index', {title: 'Toschess'})
-})
+
 
 io.on('connection', (uniqueSocket) => {
   console.log('connected')
-
 
   // handle player
   if(!players.white) {
@@ -70,6 +67,11 @@ io.on('connection', (uniqueSocket) => {
   })
 })
 
+app.get('/', (req,res) => {
+  res.render('index', {title: 'Toschess', })
+})
+
 server.listen(port, () => {
   console.log('listening on port 3000')
 })
+
