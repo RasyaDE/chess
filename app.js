@@ -20,8 +20,6 @@ let currentPlayer = "W"
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'public')))
 
-
-
 io.on('connection', (uniqueSocket) => {
   console.log('connected')
 
@@ -36,13 +34,13 @@ io.on('connection', (uniqueSocket) => {
     uniqueSocket.emit('spectatorRole')
   }
 
-  //handle player disconnect
+  // handle player disconnect (DIPERBAIKI)
   uniqueSocket.on('disconnect', () => {
     console.log('disconnect');
     if(uniqueSocket.id === players.black) {
-      delete players.white
+      delete players.black; // Sebelumnya menghapus players.white
     } else if(uniqueSocket.id === players.white) {
-      delete players.black
+      delete players.white; // Sebelumnya menghapus players.black
     }
   })
 
@@ -74,4 +72,3 @@ app.get('/', (req,res) => {
 server.listen(port, () => {
   console.log('listening on port 3000')
 })
-
