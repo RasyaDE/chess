@@ -104,8 +104,9 @@ socket.on('boardState', (fen) => {
   renderBoard();
 });
 
-socket.on('move', (fen) => {
-  chess.load(fen);
+// DIPERBAIKI: Menggunakan chess.move(move) karena data yang dikirim server adalah objek move
+socket.on('move', (move) => {
+  chess.move(move);
   renderBoard();
 });
 
