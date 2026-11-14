@@ -65,7 +65,7 @@ const renderBoard = () => {
       colElement.addEventListener('dragover', (e) => e.preventDefault());
       colElement.addEventListener('drop', (e) => {
         e.preventDefault();
-        if (draggedPiece) {
+        if (draggedPiece && sourceSquare) {
           const targetSource = {
             row: parseInt(colElement.dataset.row),
             col: parseInt(colElement.dataset.col)
@@ -104,7 +104,7 @@ socket.on('boardState', (fen) => {
   renderBoard();
 });
 
-// DIPERBAIKI: Menggunakan chess.move(move) karena data yang dikirim server adalah objek move
+// DIPERBAIKI: Menerima objek 'move' bukan 'fen'
 socket.on('move', (move) => {
   chess.move(move);
   renderBoard();
