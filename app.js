@@ -4,7 +4,7 @@ const http = require('http')
 const { Chess } = require('chess.js')
 const path = require('path')
 
-//express and socket
+// express and socket
 const app = express()
 const port = 3000
 
@@ -34,13 +34,13 @@ io.on('connection', (uniqueSocket) => {
     uniqueSocket.emit('spectatorRole')
   }
 
-  // handle player disconnect (DIPERBAIKI)
+  // handle player disconnect (DIPERBAIKI: hapus key yang sesuai dengan ID)
   uniqueSocket.on('disconnect', () => {
     console.log('disconnect');
     if(uniqueSocket.id === players.black) {
-      delete players.black; // Sebelumnya menghapus players.white
+      delete players.black
     } else if(uniqueSocket.id === players.white) {
-      delete players.white; // Sebelumnya menghapus players.black
+      delete players.white
     }
   })
 
@@ -66,7 +66,7 @@ io.on('connection', (uniqueSocket) => {
 })
 
 app.get('/', (req,res) => {
-  res.render('index', {title: 'Toschess', })
+  res.render('index', {title: 'Toschess'})
 })
 
 server.listen(port, () => {
